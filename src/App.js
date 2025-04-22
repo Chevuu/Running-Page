@@ -62,7 +62,7 @@ function App() {
           <Box color="black" fontSize="1.2rem" fontColor="#fff">
             BENELUX RUNNING FOR
           </Box>
-          <Box color="black" fontSize="1.75rem" fontColor="#ffe0c4">
+          <Box color="black" fontSize="3vw" fontColor="#ffe0c4">
             STUDENTS IN SERBIA
           </Box>
           <div className="small-row">

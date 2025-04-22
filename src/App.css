@@ -84,6 +84,9 @@
   grid-template-rows: 1fr 3fr 0.5fr;
   height: 100%;
 }
+.middle-left > .box.black:nth-child(2) {
+  font-weight: bold;
+}
 .small-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -141,7 +144,13 @@
   font-family: sans-serif;
 }
 .box.red      { background: var(--red);      }
-.box.black    { background: var(--black);    }
+.box.black    { 
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .box.yellow   { background: var(--yellow);   }
 .box.green    { background: var(--green);    }
 .box.darkblue { background: var(--darkblue); }
