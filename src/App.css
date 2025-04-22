@@ -2,14 +2,14 @@
    CSS Variables for colors
 ──────────────────────────────────────────────────────────────── */
 :root {
-  --red:          #e33101;
-  --black:        #282432;
+  --red: #e33101;
+  --black: #282432;
   --black-border: #000000;
-  --blue-bottom:  #506df5;
-  --blue-top:     #374aa8;
-  --yellow:       #f4d558;
-  --green:        #03561e;
-  --darkblue:     #142e8f;
+  --blue-bottom: #506df5;
+  --blue-top: #374aa8;
+  --yellow: #f4d558;
+  --green: #03561e;
+  --darkblue: #142e8f;
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -29,6 +29,7 @@
   grid-template-rows: 57% 40% 3%;
   height: 100vh;
 }
+
 .grid-row {
   display: grid;
 }
@@ -39,35 +40,41 @@
 .grid-row.top {
   grid-template-columns: 1fr;
 }
+
 .gradient-container {
   position: relative;
   width: 100%;
   height: 100%;
 }
+
 .gradient-box {
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to top right,
-    var(--blue-bottom),
-    var(--blue-top)
-  );
+  background: linear-gradient(to top right,
+      var(--blue-bottom),
+      var(--blue-top));
   border: 1px solid var(--black);
 }
+
 .loading-container {
   position: absolute;
   bottom: 0;
   left: 0;
   margin: 2vh 3vw;
   width: 94vw;
-  height: 12px;
-  background: rgba(0, 0, 0, 0.2);
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
   border: 1px solid var(--black-border);
 }
+
 .loading-bar {
   height: 100%;
-  transition: width 0.3s;
-  background: var(--yellow);
+  background-color: var(--green);
+  /* background-image: url('assets/runners.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1px) center; */
+  /* background-size: auto 80%; */
+  transition: width 0.3s ease;
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -84,9 +91,11 @@
   grid-template-rows: 1fr 3fr 0.5fr;
   height: 100%;
 }
-.middle-left > .box.black:nth-child(2) {
+
+.middle-left>.box.black:nth-child(2) {
   font-weight: bold;
 }
+
 .small-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -117,12 +126,22 @@
 }
 
 /* Donate open → expand top to 75% */
-.middle-right.donate-active .top-red    { height: 75%; }
-.middle-right.donate-active .bottom-red { height: 25%; }
+.middle-right.donate-active .top-red {
+  height: 75%;
+}
+
+.middle-right.donate-active .bottom-red {
+  height: 25%;
+}
 
 /* Info open → expand bottom to 75% */
-.middle-right.info-active .top-red      { height: 25%; }
-.middle-right.info-active .bottom-red   { height: 75%; }
+.middle-right.info-active .top-red {
+  height: 25%;
+}
+
+.middle-right.info-active .bottom-red {
+  height: 75%;
+}
 
 /* ────────────────────────────────────────────────────────────────
    BOTTOM SECTION
@@ -143,17 +162,30 @@
   border: 1px solid var(--black-border);
   font-family: sans-serif;
 }
-.box.red      { background: var(--red);      }
-.box.black    { 
+
+.box.red {
+  background: var(--red);
+}
+
+.box.black {
   background: var(--black);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.box.yellow   { background: var(--yellow);   }
-.box.green    { background: var(--green);    }
-.box.darkblue { background: var(--darkblue); }
+
+.box.yellow {
+  background: var(--yellow);
+}
+
+.box.green {
+  background: var(--green);
+}
+
+.box.darkblue {
+  background: var(--darkblue);
+}
 
 /* ────────────────────────────────────────────────────────────────
    BUTTON STYLES
@@ -197,6 +229,7 @@
   width: 60%;
   max-width: 200px;
 }
+
 .btn-list .btn-small {
   width: 100%;
 }
@@ -204,28 +237,62 @@
 /* ────────────────────────────────────────────────────────────────
    SMOOTH “SPLIT” ANIMATIONS (0.5s, staggered)
 ──────────────────────────────────────────────────────────────── */
-@keyframes splitUp     { from { transform: translateY(0);   opacity: 0; } to { transform: translateY(-100%); opacity: 1; } }
-@keyframes splitCenter { from { opacity: 0; } to { opacity: 1; } }
-@keyframes splitDown   { from { transform: translateY(0);   opacity: 0; } to { transform: translateY(100%); opacity: 1; } }
+@keyframes splitUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}
+
+@keyframes splitCenter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splitDown {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
 
 /* Donate panel buttons */
 .middle-right.donate-active .btn-list button:nth-child(1) {
-  animation: splitUp     0.5s ease 0.1s forwards;
+  animation: splitUp 0.5s ease 0.1s forwards;
 }
+
 .middle-right.donate-active .btn-list button:nth-child(2) {
   animation: splitCenter 0.5s ease forwards;
 }
+
 .middle-right.donate-active .btn-list button:nth-child(3) {
-  animation: splitDown   0.5s ease 0.1s forwards;
+  animation: splitDown 0.5s ease 0.1s forwards;
 }
 
 /* Info panel buttons */
 .middle-right.info-active .btn-list button:nth-child(1) {
-  animation: splitUp     0.5s ease 0.1s forwards;
+  animation: splitUp 0.5s ease 0.1s forwards;
 }
+
 .middle-right.info-active .btn-list button:nth-child(2) {
   animation: splitCenter 0.5s ease forwards;
 }
+
 .middle-right.info-active .btn-list button:nth-child(3) {
-  animation: splitDown   0.5s ease 0.1s forwards;
+  animation: splitDown 0.5s ease 0.1s forwards;
 }

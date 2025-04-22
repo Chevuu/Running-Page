@@ -23,7 +23,10 @@ function Box({ color, fontSize, fontColor, className = '', style = {}, children 
 function LoadingBar({ progress = 0 }) {
   return (
     <div className="loading-container">
-      <div className="loading-bar" style={{ width: `${progress}%` }} />
+      <div
+        className="loading-bar"
+        style={{ width: `${progress}%` }}
+      />
     </div>
   );
 }
@@ -43,7 +46,7 @@ function App() {
   const toggle = (panel) => setActive((prev) => (prev === panel ? null : panel));
 
   // Example live progress value (could come from Strava, etc.)
-  const progress = 40;
+  const progress = 65;
 
   return (
     <div className="grid-container">
