@@ -22,6 +22,18 @@
 }
 
 /* ────────────────────────────────────────────────────────────────
+   Fixed top‑left logo
+──────────────────────────────────────────────────────────────── */
+.app-logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  height: 13vh;
+  width: auto;
+  z-index: 1000;
+}
+
+/* ────────────────────────────────────────────────────────────────
    Main Grid Layout: Top / Middle / Bottom
 ──────────────────────────────────────────────────────────────── */
 .grid-container {
@@ -68,13 +80,23 @@
 }
 
 .loading-bar {
+  position: absolute;              /* make room for absolute icon */
   height: 100%;
   background-color: var(--green);
+  transition: width 0.3s ease;
   /* background-image: url('assets/runners.png');
   background-repeat: no-repeat;
   background-position: calc(100% - 1px) center; */
   /* background-size: auto 80%; */
-  transition: width 0.3s ease;
+}
+
+.atomium-icon {
+  position: absolute;
+  max-width: 60vw;
+  max-height: 40vh;
+  right: 5px;
+  top: 0;
+  transform: translateY(-100%);
 }
 
 /* ────────────────────────────────────────────────────────────────

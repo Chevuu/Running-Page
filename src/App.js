@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import atomium from './assets/atomium.png';
+import logo from './assets/logo.png';
 
 // ────────────────────────────────────────────────────────────────
 // Reusable Box component: wraps its children in a coloured box
@@ -26,8 +28,9 @@ function LoadingBar({ progress = 0 }) {
       <div
         className="loading-bar"
         style={{ width: `${progress}%` }}
-      />
-    </div>
+      ></div>
+      <img src={atomium} className="atomium-icon" alt="" />
+    </div >
   );
 }
 
@@ -49,77 +52,80 @@ function App() {
   const progress = 65;
 
   return (
-    <div className="grid-container">
-      {/* ─── TOP SECTION ─── */}
-      <div className="grid-row top">
-        <div className="gradient-container">
-          <div className="gradient-box" />
-          <LoadingBar progress={progress} />
+    <>
+      <img src={logo} className="app-logo" alt="Logo" />
+      <div className="grid-container">
+        {/* ─── TOP SECTION ─── */}
+        <div className="grid-row top">
+          <div className="gradient-container">
+            <div className="gradient-box" />
+            <LoadingBar progress={progress} />
+          </div>
         </div>
-      </div>
 
-      {/* ─── MIDDLE SECTION ─── */}
-      <div className="grid-row middle">
-        {/* Left column: static text boxes */}
-        <div className="middle-left">
-          <Box color="black" fontSize="1.2rem" fontColor="#fff">
-            BENELUX RUNNING FOR
-          </Box>
-          <Box color="black" fontSize="3vw" fontColor="#ffe0c4">
-            STUDENTS IN SERBIA
-          </Box>
-          <div className="small-row">
-            <Box color="yellow" fontSize="0.9rem" fontColor="#000">
-              9/5 – 11/5
+        {/* ─── MIDDLE SECTION ─── */}
+        <div className="grid-row middle">
+          {/* Left column: static text boxes */}
+          <div className="middle-left">
+            <Box color="black" fontSize="1.2rem" fontColor="#fff">
+              BENELUX RUNNING FOR
             </Box>
-            <Box color="darkblue" fontSize="0.9rem" fontColor="#fff">
-              ~XXX km
+            <Box color="black" fontSize="3vw" fontColor="#ffe0c4">
+              STUDENTS IN SERBIA
             </Box>
+            <div className="small-row">
+              <Box color="yellow" fontSize="0.9rem" fontColor="#000">
+                9/5 – 11/5
+              </Box>
+              <Box color="darkblue" fontSize="0.9rem" fontColor="#fff">
+                ~XXX km
+              </Box>
+            </div>
+          </div>
+
+          {/* Right column: two red panels that expand/collapse */}
+          <div className={`middle-right ${active ? `${active}-active` : ''}`}>
+            {/* Donate panel (top) */}
+            <div className="top-red">
+              {active === 'donate' ? (
+                <div className="btn-list">
+                  <button className={btnClass}>Tikkie</button>
+                  <button className={btnClass}>Paypal</button>
+                  <button className={btnClass}>Revolut</button>
+                </div>
+              ) : (
+                <button className={btnClass} onClick={() => toggle('donate')}>
+                  Donate
+                </button>
+              )}
+            </div>
+
+            {/* Info panel (bottom) */}
+            <div className="bottom-red">
+              {active === 'info' ? (
+                <div className="btn-list">
+                  <button className={btnClass}>Info 1</button>
+                  <button className={btnClass}>Info 2</button>
+                  <button className={btnClass}>Info 3</button>
+                </div>
+              ) : (
+                <button className={btnClass} onClick={() => toggle('info')}>
+                  Info
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Right column: two red panels that expand/collapse */}
-        <div className={`middle-right ${active ? `${active}-active` : ''}`}>
-          {/* Donate panel (top) */}
-          <div className="top-red">
-            {active === 'donate' ? (
-              <div className="btn-list">
-                <button className={btnClass}>Tikkie</button>
-                <button className={btnClass}>Paypal</button>
-                <button className={btnClass}>Revolut</button>
-              </div>
-            ) : (
-              <button className={btnClass} onClick={() => toggle('donate')}>
-                Donate
-              </button>
-            )}
-          </div>
-
-          {/* Info panel (bottom) */}
-          <div className="bottom-red">
-            {active === 'info' ? (
-              <div className="btn-list">
-                <button className={btnClass}>Info 1</button>
-                <button className={btnClass}>Info 2</button>
-                <button className={btnClass}>Info 3</button>
-              </div>
-            ) : (
-              <button className={btnClass} onClick={() => toggle('info')}>
-                Info
-              </button>
-            )}
-          </div>
+        {/* ─── BOTTOM SECTION ─── */}
+        <div className="grid-row bottom">
+          <Box color="green" />
+          <Box color="yellow" />
+          <Box color="darkblue" />
+          <Box color="red" />
         </div>
       </div>
-
-      {/* ─── BOTTOM SECTION ─── */}
-      <div className="grid-row bottom">
-        <Box color="green" />
-        <Box color="yellow" />
-        <Box color="darkblue" />
-        <Box color="red" />
-      </div>
-    </div>
+    </>
   );
 }
 
