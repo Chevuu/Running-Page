@@ -1,52 +1,50 @@
-import React, { useState } from "react";
-import styles from "./MiddleRight.module.css";
+import React from "react";
+import { useTranslation } from "react-i18next";
 import Button from "../SharedButton/Button";
+import styles from "./MiddleRight.module.css";
 
-export default function MiddleRight() {
-    const [active, setActive] = useState(null);
-    const anyActive = Boolean(active);
-
-    const toggle = (panel) =>
-        setActive((prev) => (prev === panel ? null : panel));
-
-    const size = anyActive ? "small" : "large";
+export default function MiddleRight({ mode, setMode }) {
+    const { t } = useTranslation();
 
     return (
-        <div
-            className={`${styles.container} ${active === "donate"
-                    ? styles.donateActive
-                    : active === "info"
-                        ? styles.infoActive
-                        : ""
-                }`}
-        >
-            {/* ── Donate Panel ───────────────── */}
+        <div className={`${styles.container} ${mode === "donate" ? styles.donateMode : ""}`}>
+            {/* ─── upper red panel ─── */}
             <div className={styles.topRed}>
-                {active === "donate" ? (
-                    <div className={styles.btnList}>
-                        <Button size="small">Tikkie</Button>
-                        <Button size="small">Paypal</Button>
-                        <Button size="small">Revolut</Button>
-                    </div>
+                {mode === "donate" ? (
+                    <>
+                        <div className={styles.splitButton}>
+                            <Button size="large" bold>{t("donateToStudents")}</Button>
+                        </div>
+
+                        <div className={styles.splitButton}>
+                            <Button size="large" bold>{t("localDonations")}</Button>
+                        </div>
+
+                        <button className={styles.backArrow} onClick={() => setMode("normal")}>←</button>
+                    </>
                 ) : (
-                    <Button size={size} onClick={() => toggle("donate")}>
-                        Donate
+                    <Button
+                        size="largeBig"
+                        bold
+                        onClick={() => setMode("donate")}
+                        className={styles.primaryDonate}
+                    >
+                        {t("donate")}
                     </Button>
                 )}
             </div>
 
-            {/* ── Info Panel ─────────────────── */}
+            {/* ─── lower panel ─── */}
             <div className={styles.bottomRed}>
-                {active === "info" ? (
-                    <div className={styles.btnList}>
-                        <Button size="small">Info 1</Button>
-                        <Button size="small">Info 2</Button>
-                        <Button size="small">Info 3</Button>
-                    </div>
-                ) : (
-                    <Button size={size} onClick={() => toggle("info")}>
-                        Info
-                    </Button>
+                {mode === "normal" && (
+                    <a
+                        className={styles.infoBtn}
+                        href="https://trkadobrisela.rs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {t("info")}
+                    </a>
                 )}
             </div>
         </div>

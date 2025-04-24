@@ -17,3 +17,37 @@
     border: 1px solid var(--black-border);
     cursor: pointer;
 }
+
+.largeBig {
+    width: 70%;
+    max-width: 360px;
+    padding: 1rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--yellow);
+    border: 3px solid var(--black-border);
+    cursor: pointer;
+}
+
+.huge {
+    width: 90%;
+    max-width: 500px;
+    padding: 1.4rem 0;
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--yellow);
+    border: 3px solid var(--black-border);
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .large,
+    .small,
+    .largeBig,
+    .huge {
+      width: 100%;
+      max-width: 100%;
+      font-size: 5vw;
+      padding: 0.9rem 0;
+    }
+  }

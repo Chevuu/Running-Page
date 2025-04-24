@@ -1,18 +1,20 @@
-/* wrapper just holds the LoadingBar; height is content-driven */
 .wrapper {
     position: relative;
 }
 
-/* full-viewport, fixed blue gradient background */
 .gradient {
     position: fixed;
     inset: 0;
-    /* top:0 right:0 bottom:0 left:0 */
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to top right,
             var(--blue-bottom),
             var(--blue-top));
     z-index: -1;
-    /* behind everything */
+}
+
+.languageBox {
+    position: absolute;
+    top: 12px;
+    right: 12px;
 }

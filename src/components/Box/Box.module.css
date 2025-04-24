@@ -28,3 +28,9 @@
 .darkblue {
     background: var(--darkblue);
 }
+
+@media (max-width: 600px) {
+    .box {
+      font-size: 4vw;                 /* prevent giant text blocks */
+    }
+  }

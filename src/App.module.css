@@ -7,7 +7,6 @@
   z-index: 1000;
 }
 
-/* stack sections one after another */
 .grid {
   display: flex;
   flex-direction: column;
@@ -18,15 +17,25 @@
   height: 57vh;
 }
 
-/* middle row keeps its two-column layout */
 .middle {
-  height: 40vh;
   display: grid;
+  height: 40vh;
   grid-template-columns: 1fr 1.6fr;
+  transition: grid-template-columns 0.5s ease;
+  overflow: hidden;
 }
 
-/* bottom row: four coloured boxes */
+.middle.donateMode {
+  grid-template-columns: 0fr 1fr;
+}
+
 .bottom {
   display: grid;
   height: 3vh;
+  line-height: 0;
+}
+
+@media (max-width: 600px) {
+  .top   { height: 55vh; }
+  .middle{ height: 42vh; }
 }
