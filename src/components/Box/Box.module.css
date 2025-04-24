@@ -1,0 +1,30 @@
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--black-border);
+    text-align: center;
+}
+
+/* colour variants */
+.red {
+    background: var(--red);
+}
+
+.black {
+    background: var(--black);
+}
+
+.yellow {
+    background: var(--yellow);
+}
+
+.green {
+    background: var(--green);
+}
+
+.darkblue {
+    background: var(--darkblue);
+}

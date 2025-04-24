@@ -1,0 +1,26 @@
+.container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 2vh 3vw;
+  width: 94vw;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--black-border);
+}
+
+.bar {
+  position: absolute;
+  height: 100%;
+  background-color: var(--green);
+  transition: width 0.3s ease;
+}
+
+.icon {
+  position: absolute;
+  max-width: 60vw;
+  max-height: 40vh;
+  right: 5px;
+  top: 0;
+  transform: translateY(-100%);
+}

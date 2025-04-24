@@ -1,0 +1,9 @@
+.column {
+    display: grid;
+    grid-template-rows: 1fr 3fr 0.5fr;
+    height: 100%;
+  }
+  .smallRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }

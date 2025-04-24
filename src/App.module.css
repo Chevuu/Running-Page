@@ -1,0 +1,32 @@
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  height: 13vh;
+  width: auto;
+  z-index: 1000;
+}
+
+/* stack sections one after another */
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: grid;
+  height: 57vh;
+}
+
+/* middle row keeps its two-column layout */
+.middle {
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+}
+
+/* bottom row: four coloured boxes */
+.bottom {
+  display: grid;
+  height: 3vh;
+}
