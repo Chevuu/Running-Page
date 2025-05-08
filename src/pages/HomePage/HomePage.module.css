@@ -1,0 +1,8 @@
+.middle {
+    display: grid;
+    height: 40vh;
+    grid-template-columns: 1fr 1.6fr;
+    transition: grid-template-columns 0.6s ease;
+  }
+  
+  .donateMode { grid-template-columns: 0fr 1fr; }

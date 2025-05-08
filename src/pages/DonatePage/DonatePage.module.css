@@ -1,0 +1,41 @@
+.wrapper {
+    height: 40vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    background: var(--blue-bottom);
+    color: #fff;
+    border: 1px solid var(--black-border);
+    padding: 1.5rem;
+    max-width: 90%;
+    height: 100%;
+    overflow-y: auto;
+    font-size: 1rem;
+  }
+  
+  .card h2 { margin-top: 0; font-size: 1.4rem; }
+  
+  .arrowLeft,
+  .arrowRight {
+    position: absolute;
+    top: 0.8rem;
+    background: var(--yellow);
+    border: 1px solid var(--black-border);
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .arrowLeft  { left: 0.8rem; }
+  .arrowRight { right: 0.8rem; }
+  
+  .codes { white-space: pre-wrap; }
+  
+  @media (max-width: 600px) {
+    .card { font-size: 3.5vw; }
+  }

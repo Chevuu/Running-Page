@@ -8,5 +8,13 @@
     "paypal": "PayPal",
     "revolut": "Revolut",
     "localDonations": "Local Donations",
-    "donateToStudents": "Donate to Students"
+    "donateToStudents": "Donate to Students",
+    "boxesTitle":"Donation boxes!",
+    "boxesIntro":"Boxes are placed at many faculties...",
+    "onlineTitle":"Via website – Support students",
+    "onlineStep2":"Click the ❤ Donate button.",
+    "onlineStep3":"Write note: “Race to Brussels”.",
+    "onlineTip":"You may donate anonymously, but note is mandatory.",
+    "bankTitle":"Bank transfer",
+    "bankIntro":"You can donate to the following accounts:"
   }
