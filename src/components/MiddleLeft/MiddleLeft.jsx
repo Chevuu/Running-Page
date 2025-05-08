@@ -35,7 +35,7 @@ export default function MiddleLeft({ isShrinking }) {
         ? ""
         : (
             <>
-                {t("protestInShoes3")} <br /> {t("protestInShoes3")}
+                {t("protestInShoes3")} <br /> {t("protestInShoes4")}
             </>
         );
 
