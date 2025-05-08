@@ -8,6 +8,7 @@ export default function LanguageSelector() {
     const languages = [
         { code: "en", label: "EN" },
         { code: "sr", label: "SR" },
+        { code: "nl", label: "NL" },
     ];
 
     const handleChange = (e) => {
