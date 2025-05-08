@@ -9,8 +9,13 @@
 }
 
 /* panels */
-.topRed   { flex-grow: var(--topGrow); }
-.bottomRed{ flex-grow: var(--botGrow); }
+.topRed {
+  flex-grow: var(--topGrow);
+}
+
+.bottomRed {
+  flex-grow: var(--botGrow);
+}
 
 .topRed,
 .bottomRed {
@@ -24,7 +29,10 @@
 }
 
 /* donate takeover */
-.donateMode { --topGrow: 1; --botGrow: 0; }
+.donateMode {
+  --topGrow: 1;
+  --botGrow: 0;
+}
 
 .donateMode .bottomRed {
   opacity: 0;
@@ -51,24 +59,51 @@
 
 /* small bouncing motion (5 px range) */
 @keyframes shake {
-  0%   { transform: translateX(0)    rotate(0deg);  }
-  15%  { transform: translateX(-4px) rotate(-1deg); }
-  30%  { transform: translateX(4px)  rotate(1deg);  }
-  45%  { transform: translateX(-3px) rotate(-1deg); }
-  60%  { transform: translateX(3px)  rotate(1deg);  }
-  75%  { transform: translateX(-2px) rotate(-0.5deg);}
-  90%  { transform: translateX(2px)  rotate(0.5deg); }
-  100% { transform: translateX(0)    rotate(0deg);  }
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  15% {
+    transform: translateX(-4px) rotate(-1deg);
+  }
+
+  30% {
+    transform: translateX(4px) rotate(1deg);
+  }
+
+  45% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translateX(3px) rotate(1deg);
+  }
+
+  75% {
+    transform: translateX(-2px) rotate(-0.5deg);
+  }
+
+  90% {
+    transform: translateX(2px) rotate(0.5deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
 }
 
-/*──────────── split view ───────────*/
+/*──────────── split view (three logos) ───────────*/
 .splitButtons {
-  display: flex;
+  /* grid auto-fits as many buttons as will fit neatly */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+      minmax(clamp(0px, 30%, 100px), 0.4fr));
+  gap: 1rem;
   width: 100%;
-  padding: 0 2.5rem;
+  padding: 0 2rem;
   opacity: 0;
   transform: scale(0.9);
-  pointer-events: none;               /* inactive until donateMode */
+  pointer-events: none;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -78,25 +113,42 @@
   pointer-events: auto;
 }
 
+/* one grid cell */
 .splitButton {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.splitButton + .splitButton { margin-left: 2.5rem; }
-
-.splitButton button {
-  width: 100%;
-  min-height: 20vh;
-  max-width: 360px;
-  padding: 1.6rem 0;
-  font-size: 2.2rem;
-  font-weight: 700;
+.logoBtn {
+  padding: 0.8rem 0;
 }
 
-/* back arrow */
+/* the visible button */
+.splitButton button {
+  width: 100%;
+  aspect-ratio: var(--btn-aspect, 3 / 2);
+  /* width : height  */
+  max-width: 360px;
+  font-size: 0;
+  /* remove stray whitespace */
+  background: var(--yellow);
+  border: 1px solid var(--black-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*  logo sizing via optional CSS vars  */
+.splitButton button img {
+  width: var(--logo-width, 65%);
+  height: var(--logo-height, 100%);
+  object-fit: contain;
+  pointer-events: none;
+  /* keeps the whole button clickable */
+}
+
+/*──────────────────── misc ────────────────────*/
 .backArrow {
   position: absolute;
   top: 12px;
@@ -109,7 +161,6 @@
   z-index: 5;
 }
 
-/* info link */
 .infoBtn {
   background: var(--yellow);
   color: var(--black);
@@ -120,24 +171,20 @@
   text-decoration: none;
 }
 
+/*───────── mobile tweaks (<600 px) ─────────*/
 @media (max-width: 600px) {
-  /* single Donate button */
   .primaryDonate {
     font-size: 7vw;
     max-width: 90%;
     padding: 1rem 0;
   }
 
-  /* split view */
-  .splitButtons { flex-direction: column; gap: 2rem; }
-
-  .splitButton button {
-    width: 90%;
-    max-width: none;
-    font-size: 6vw;
-    min-height: 14vh;
+  .splitButtons {
+    gap: 1rem;
+    padding: 0 0.8rem;
   }
 
-  /* back arrow bigger tap-target */
-  .backArrow { padding: 0.35rem 0.8rem; }
+  .backArrow {
+    padding: 0.35rem 0.8rem;
+  }
 }

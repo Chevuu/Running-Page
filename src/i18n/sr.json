@@ -1,5 +1,8 @@
 {
-    "16RunningFor": "16 ТРЧИ ЗА",
+    "protestInShoes": "PROTEST U PATIKAMA",
+    "protestInShoes2": "Kad institucije uspore - ti ubrzaj!",
+    "protestInShoes3": "Od 10. do 12. maja, trkači iz Holandije kreću ka Briselu u susret srpskim studentima koji trče od Novog Sada do Brisela kako bi u institucijama EU podigli svest o vladavini prava u Srbiji.",
+    "protestInShoes4": "Podrži njihov svaki korak – doniraj i 100% sredstava će direktno stići do studenata i učenika koji se bore za pravnu državu u Srbiji.",
     "dateRange": "25/4 – 11/5",
     "distance": "2000 km",
     "donate": "Донације",
@@ -7,6 +10,5 @@
     "tikkie": "Tikkie",
     "paypal": "PayPal",
     "revolut": "Revolut",
-    "localDonations": "Локалне донације",
-    "donateToStudents": "Директно студентима"
+    "supportMarathon": "Support Marathon"
   }

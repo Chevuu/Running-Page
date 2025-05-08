@@ -1,42 +1,144 @@
+/*──────── column skeleton ────────*/
 .column {
   display: grid;
-  grid-template-rows: 1fr 3fr 0.5fr;
+  /* 1 : 3 : 0.7 ratio, but each track may shrink (minmax 0)                */
+  grid-template-rows: minmax(0, 1fr)
+    /* top label        */
+    minmax(0, 3fr)
+    /* long paragraph    */
+    minmax(0, 0.7fr);
+  /* date / route row */
   height: 100%;
-  min-width: 0;
-  transition: transform 1s ease, opacity 1s ease;
+  min-height: 0;
+  width: 100%;
+  transition: width 0.3s ease;
+  /* let the whole column shrink in its parent */
 }
+
+/*──────── fade animation ────────*/
+.fade {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/*──────── date / route row ────────*/
+.smallRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 0;
+}
+
+/* make each little box horizontally scrollable (no wrap) */
+.smallBox {
+  min-width: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+}
+
+.smallBox::-webkit-scrollbar {
+  display: none;
+}
+
+/*──────── text areas ────────*/
+.textTop,
+.textBottom {
+  /* override Box’s flex so the element itself becomes the scroller  */
+  display: block !important;
+  padding-left: 3px;
+  padding-right: 3px;
+
+  /* keep them inside their grid tracks, no growing */
+  min-height: 0;
+  max-height: 100%;
+
+  /* vertical scrolling with a tiny “buffer” above & below */
+  overflow-y: auto;
+  padding-block: 0.6rem;
+  scroll-padding-block: 0.8rem;
+
+  -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
+  scrollbar-width: none;            /* hide bars – Firefox */
+}
+.textTop::-webkit-scrollbar,
+.textBottom::-webkit-scrollbar { display: none; }
 
 .slideOut {
   transform: translateX(-100%);
   opacity: 0;
+  width: 0;
+  transition: transform 0.4s ease,
+              opacity   0.4s ease,
+              width     0.35s ease;
+  pointer-events: none;   /* disable clicks while off-screen */
 }
 
-.smallRow {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.textTop {
+  padding: 2vw;
+  font-size: 25px;
+  padding: 0.4rem;
 }
 
-/* keeps the digit tight on desktop */
-.bigNumber { line-height: 0.9; }
+.textBottom {
+  padding: 0.2vw 2vw;
+  font-size: 19.1px;
+  padding-block: 0.8rem;
+}
 
-/* ----- phone tweaks (≤ 600 px) ----- */
+/*──────── responsive font tweaks ────────*/
+@media (max-width: 1400px) {
+  .textBottom {
+    font-size: 17.5px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .textBottom {
+    font-size: 17px;
+  }
+  .textTop {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .textBottom {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .textBottom {
+    font-size: 15px;
+  }
+
+  .textTop {
+    font-size: 19px;
+  }
+}
+
 @media (max-width: 600px) {
+  .textBottom {
+    font-size: 12px;
+  }
+
+  .textTop {
+    font-size: 14px;
+  }
+}
+
+/* ─── phone tweaks (≤ 600 px) ─── */
+@media (max-width: 600px) {
+
+  /* keep same ratio, just explicit for clarity */
   .column {
-    grid-template-rows: 0.6fr 2.5fr 0.5fr;   /* rebalance heights */
-  }
-
-  /* override inline 20vh with vw for narrow screens */
-  .bigNumber {
-    font-size: 32vw !important;
-  }
-
-  /* subtle shrink on the “RUNNING FOR” label */
-  .column > .box:first-child {
-    font-size: 3.8vw !important;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 0.7fr);
   }
 
   .smallRow {
-    display: grid;
-    grid-template-columns: 1fr 0.8fr;
+    grid-template-columns: 1fr 1fr;
   }
 }

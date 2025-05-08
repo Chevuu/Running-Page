@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./App.module.css";
 
 import TopSection from "./components/TopSection/TopSection";
@@ -11,10 +12,15 @@ import logo from "./assets/logo.png";
 export default function App() {
   const [mode, setMode] = useState("normal");   // "normal" | "donate"
   const progress = 65;
+  const { t } = useTranslation();
 
   return (
     <>
-      <img src={logo} className={styles.logo} alt="Logo" />
+      <div className={styles.logoBox}>
+        <img src={logo} className={styles.logo} alt="Logo" />
+        <span className={styles.subtitle}>{t("supportMarathon")}</span>
+      </div>
+
 
       <div className={styles.grid}>
         <div className={styles.top}>
