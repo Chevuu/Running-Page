@@ -8,3 +8,8 @@
     --green: #03561e;
     --darkblue: #142e8f;
   }
+
+  .green:hover   { background-color: var(--yellow);   }
+.yellow:hover  { background-color: var(--darkblue); }
+.darkblue:hover{ background-color: var(--red);      }
+.red:hover     { background-color: var(--green);    }

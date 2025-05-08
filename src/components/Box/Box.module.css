@@ -6,6 +6,7 @@
     height: 100%;
     border: 1px solid var(--black-border);
     text-align: center;
+    transition: background-color 0.4s ease;
 }
 
 /* colour variants */
@@ -29,8 +30,29 @@
     background: var(--darkblue);
 }
 
+.green:hover {
+    background-color: var(--yellow);
+}
+
+.yellow:hover {
+    background-color: var(--darkblue);
+}
+
+.darkblue:hover {
+    background-color: var(--red);
+}
+
+.red:hover {
+    background-color: var(--green);
+}
+
+.black:hover {
+    background-color: var(--green);
+}
+
 @media (max-width: 600px) {
     .box {
-      font-size: 4vw;                 /* prevent giant text blocks */
+        font-size: 4vw;
+        /* prevent giant text blocks */
     }
-  }
+}

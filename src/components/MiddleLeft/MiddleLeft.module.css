@@ -82,6 +82,10 @@
   padding: 0.4rem;
 }
 
+.textTop:hover {
+  background-color: var(--darkblue);
+}
+
 .textBottom {
   padding: 0.2vw 2vw;
   font-size: 19.1px;
