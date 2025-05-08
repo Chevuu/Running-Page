@@ -75,7 +75,7 @@ export default function MiddleLeft({ isShrinking }) {
                     fontColor="#fff"
                     className={styles.smallBox}
                 >
-                    Hag - Brisel
+                    {t("hagueBrussels")}
                 </Box>
             </div>
         </div>
