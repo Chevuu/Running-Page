@@ -59,7 +59,7 @@ export default function MiddleRight({ mode, setMode }) {
                                 width: "60%",
                             })}
                             {renderLogoButton({
-                                href: "https://tikkie.me/pay/mqtoma91afvgdhjb9mc9",
+                                href: "https://tikkie.me/pay/3smr1914hveij9lui4a7",
                                 logo: tikkieLogo,
                                 alt: "Tikkie",
                                 height: "70%",
